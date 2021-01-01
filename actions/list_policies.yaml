@@ -1,0 +1,7 @@
+---
+description: "List open policy agent policies"
+enabled: true
+name: list_policies
+pack: opa
+runner_type: python-script
+entry_point: list_policies.py

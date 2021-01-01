@@ -1,0 +1,7 @@
+---
+description: "Check connection to open policy agent"
+enabled: true
+name: check_connection
+pack: opa
+runner_type: python-script
+entry_point: check_connection.py

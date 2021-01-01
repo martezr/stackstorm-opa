@@ -1,0 +1,6 @@
+---
+url: "http://localhost"
+port: 8181
+version: "v1"
+ssl: false
+certificate: ""

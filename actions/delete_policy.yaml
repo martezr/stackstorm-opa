@@ -1,0 +1,13 @@
+---
+description: "Delete an open policy agent policy"
+enabled: true
+name: delete_policy
+pack: opa
+runner_type: python-script
+entry_point: delete_policy.py
+parameters:
+    policy:
+        type: string
+        description: "Name of the OPA policy to delete"
+        required: true
+        position: 0

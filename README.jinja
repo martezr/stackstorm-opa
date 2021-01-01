@@ -1,0 +1,63 @@
+[![Build Status](https://circleci.com/gh/StackStorm-Exchange/stackstorm-chaostoolkit.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/StackStorm-Exchange/stackstorm-chaostoolkit) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+# {{ pack["pack.yaml"].name }} integration pack v{{ pack["pack.yaml"].version }}
+
+> {{ pack["pack.yaml"].description }}
+{{ pack["pack.yaml"].author }} <{{ pack["pack.yaml"].email }}>
+
+[ChaosToolkit](https://chaostoolkit.org/)
+
+# <a name="QuickStart"></a> Quick Start
+
+Install the pack
+
+``` shell
+st2 pack install opa
+```
+
+## Configuration
+
+There are currently no configuration parameters.
+
+## Actions
+
+{% if actions | length > 0 %}
+The pack provides the following actions:
+
+{% for key, value in actions.items() -%}
+### {{ value.name }}
+_{{ value.description }}_
+
+| Parameter | Type | Required | Secret | Description |
+|---|---|---|---|---|
+{% if value.parameters is defined %}
+{% for p_key, p_value in value.parameters.items() -%}
+| `{{ p_key }}` | {{ p_value.type | default("n/a") }} | {{ p_value.required | default("default") }} | {{ p_value.secret | default("default") }} | _{{ p_value.description | default("Unavailable") }}_ |
+{% endfor -%}
+{% endif %}
+
+{% endfor %}
+{% else %}
+There are no actions available for this pack.
+{% endif %}
+
+## Sensors
+{% if sensors | length > 0 %}
+The following sensors and triggers are provided:
+{% for key, value in sensors.items() %}
+### Class {{ value.class_name }}
+_{{ value.description }}_
+
+{% for trigger in value.trigger_types -%}
+| Trigger Name | Description |
+|---|---|
+| `{{ trigger.name }}` | _{{ trigger.description | default("Unavailable") }}_ |
+{% endfor %}
+
+
+{% endfor %}
+{% else %}
+There are no sensors available for this pack.
+{% endif %}
+
+<sub>Documentation generated using [pack2md](https://github.com/nzlosh/pack2md)</sub>
